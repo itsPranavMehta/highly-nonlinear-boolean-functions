@@ -3,7 +3,7 @@ from numpy.random import randint
 from sympy import fwht
 import time
 
-
+#program to randomly generate boolean functions with high nonlinearity
 def convert_from_polarised(seq):
     for i in range(0, len(seq)):
         if(seq[i] == -1):
@@ -34,8 +34,6 @@ def getScore(seq):
     my_dict[tup_seq] = mx_non_linearity-curr_non_linearity
     return mx_non_linearity-curr_non_linearity
 
-
-# making a program to randomly generate boolean functions with high nonlinearity
 for i in range(8, 17, 2):
     start_time = time.time()
     var = i
