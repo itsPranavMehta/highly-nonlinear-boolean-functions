@@ -4,7 +4,7 @@ from sympy import fwht
 import time
 # genetic algorithm to search for Boolean variables with high nonlinearity.
 
-THRESH_HOLD=0.98
+THRESH_HOLD=0.95
 
 my_dict = dict()
 def getScore(seq):
