@@ -2,9 +2,8 @@ from numpy.random import rand
 from numpy.random import randint
 from sympy import fwht
 import time
-# genetic algorithm search of the one max optimization problem
+# genetic algorithm to search for Boolean variables with high nonlinearity.
 
-# objective function
 THRESH_HOLD=0.98
 
 def getScore(seq):
@@ -23,9 +22,6 @@ def getScore(seq):
     #score =mx_non-curr_non
     #curr_non=mx_non-score
     #squared errors won't make a difference here....
-
-# tournament selection
-
 
 def convert_from_polarised(seq):
     for i in range(0, len(seq)):
@@ -55,7 +51,6 @@ def selection(pop, scores, k=4):
 
 # crossover two parents to create two children
 
-
 def crossover(p1, p2, r_cross):     #one point crossover 
     # children are copies of parents by default
     child1, child2 = p1.copy(), p2.copy()
@@ -79,9 +74,7 @@ def twoPointCrosover(p1,p2,r_cross):
         child1=p2[:pt1]+p1[pt1+1:pt2]+p2[pt2+1:]
     return [child1,child2]
         
-# mutation operator
-
-
+# mutation
 def mutation(bitstring, r_mut):
     for i in range(len(bitstring)):
         # check for a mutation
@@ -90,16 +83,10 @@ def mutation(bitstring, r_mut):
             bitstring[i] = 1 - bitstring[i]
 
 # genetic algorithm
-
-
 def genetic_algorithm(objective, n_bits, n_iter, n_pop, r_cross, r_mut):
     # initial population of random bitstring
     pop = [randint(0, 2, n_bits).tolist() for _ in range(n_pop)]
-
-    # for seq in pop:
-    #     convert_to_polarised(seq)
-    # convert to polarised
-    # keep track of best solution
+    
     best, best_eval = pop[0], objective(pop[0])
     # enumerate generations
     for gen in range(n_iter):
@@ -151,7 +138,7 @@ for i in range(8,17,2):
     # r_mut=0.6
     # perform the genetic algorithm search
     mx_non_linearity = 2**(var-1)-2**(var/2-1)
-    # p rint('max possible score is : ', 2**(var-1)-2**(var/2-1))
+    # print('max possible score is : ', 2**(var-1)-2**(var/2-1))
     best, score = genetic_algorithm(getScore, n_bits, n_iter, n_pop, r_cross, r_mut)
     filename="myResults_"+str(var)+".txt"
     file1 = open(filename, 'w')
