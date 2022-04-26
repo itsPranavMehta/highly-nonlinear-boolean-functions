@@ -6,18 +6,18 @@ import time
 
 THRESH_HOLD=0.98
 
+my_dict = dict()
 def getScore(seq):
-    # print(seq)
-    # use_seq=seq
+    
+    tup_seq = tuple(seq)
+    if tup_seq in my_dict:
+        return my_dict[tup_seq]
     use_seq = [i for i in seq]
     convert_to_polarised(use_seq)
     transform = fwht(use_seq)
     mx = max(abs(min(transform)), max(transform))
-    # print('max: ',mx_non_linearity)
-    # print('val: ', 2**(var-1)-mx/2)
-    # if(mx_non_linearity == 2**(var-1)-mx/2):
-    #     print('found: ', mx_non_linearity, 2**(var-1)-mx/2,seq)
     curr_non_linearity=2**(var-1)-mx/2
+    my_dict[tup_seq] = mx_non_linearity-curr_non_linearity
     return mx_non_linearity-curr_non_linearity
     #score =mx_non-curr_non
     #curr_non=mx_non-score
