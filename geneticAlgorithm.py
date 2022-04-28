@@ -158,7 +158,6 @@ for i in range(8,17,2):
     file1.write('\nmax possible nonlinearity is : {}'.format( mx_non_linearity))
     file1.write('\nmax nonlinearity obtained: {}'.format( mx_non_linearity-score))
     file1.write('\nIn terms of percentage: {}'.format( 100*(mx_non_linearity-score)/mx_non_linearity))
-    file1.write('\ntime taken: {}'.format( time.time()-start_time))
     file1.write('function: {}'.format(best))
 
 
