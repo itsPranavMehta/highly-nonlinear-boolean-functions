@@ -8,7 +8,7 @@ The files published on this repository are as follow:
   - randomGeneration.py
     - this file contains code for randomly generating highly nonlinear Boolean function
     - this serves as a benchmark for our geneticAlgorithm.
-  - Results_x.txt
+  - Result_x.txt
     - these files contain the results obtained by the genetic algorithm code (geneticAlgorithm.py) for "x" variables. 
     - the results contain the following information
       - maximum possible nonlinearity
